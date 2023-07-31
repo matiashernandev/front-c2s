@@ -1,4 +1,6 @@
+import { Layout } from "@/components/layouts/Layout"
+
 function nosotros() {
-  return <div>nosotros</div>
+  return <Layout title="Nosotros">Nosotros</Layout>
 }
 export default nosotros
