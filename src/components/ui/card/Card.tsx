@@ -16,15 +16,17 @@ export const Card: FC<Props> = ({ character }) => {
   }
 
   return (
-    <li className="flex flex-col items-center justify-end">
+    <li
+      onClick={handleClick}
+      className="flex flex-col items-center justify-end rounded-lg bg-blue-500 cursor-pointer hover:bg-yellow-500 p-2 transition-all"
+    >
       <Image
         src={character.image}
         alt={character.name}
-        height={300}
-        width={200}
-        onClick={handleClick}
+        height={180}
+        width={250}
       />
-      <h2 className="xl:text-lg font-semibold">{character.name}</h2>
+      <h2 className="  text-2xl font-semibold">{character.name}</h2>
     </li>
   )
 }
