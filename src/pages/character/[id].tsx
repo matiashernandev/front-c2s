@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import { SkewLoader } from "react-spinners"
 
 const CharacterPage = () => {
   const router = useRouter()
@@ -15,8 +16,8 @@ const CharacterPage = () => {
   const getCharacter = async () => {
     const res = await fetch(`https://amiiboapi.com/api/amiibo?tail=${id}`)
     const json = await res.json()
-    console.log(json.amiibo[0].image)
-    setCharacter(json.amiibo[0])
+    //console.log(json.amiibo[0].image)
+    setCharacter(json?.amiibo[0])
   }
 
   useEffect(() => {
@@ -25,17 +26,25 @@ const CharacterPage = () => {
 
   return (
     <Layout title="Página del personaje">
-      <div className="h-[calc(100vh-7rem)] bg-orange-300 flex justify-center items-center">
-        <div className="bg-white text-black">
-          <p>{id}</p>
-          <Image
-            src={character?.image}
-            alt={character?.name}
-            width={200}
-            height={200}
-          />
-          <p>{character ? character.name : null}</p>
-          <Link href={"/characters"}>Volver</Link>
+      <div className="h-[calc(100vh-7rem)] flex justify-center items-center">
+        <div className="text-white bg-blue-400  flex flex-col  justify-between items-center">
+          {/*  <p>{id}</p> */}
+
+          {character.image ? (
+            <Image
+              src={character?.image}
+              alt={character?.name}
+              width={200}
+              height={200}
+              priority={true}
+            />
+          ) : (
+            <SkewLoader size={35} color="#fae906" />
+          )}
+          {/*   <p>{character ? character.name : null}</p> */}
+          <Link className="text-xl" href="/">
+            Volver
+          </Link>
         </div>
       </div>
     </Layout>
