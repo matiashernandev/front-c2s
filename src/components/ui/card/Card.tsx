@@ -1,3 +1,4 @@
+import { Layout } from "@/components/layouts/Layout"
 import { Character } from "@/interfaces"
 import Image from "next/image"
 import { useRouter } from "next/router"
@@ -9,6 +10,11 @@ interface Props {
 
 export const Card: FC<Props> = ({ character }) => {
   const router = useRouter()
+
+  const handleClick = () => {
+    router.push(`character/${character.tail}`)
+  }
+
   return (
     <li className="flex flex-col items-center justify-end">
       <Image
@@ -16,7 +22,7 @@ export const Card: FC<Props> = ({ character }) => {
         alt={character.name}
         height={300}
         width={200}
-        onClick={() => router.push(`characters/${character.tail}`)}
+        onClick={handleClick}
       />
       <h2 className="xl:text-lg font-semibold">{character.name}</h2>
     </li>
