@@ -8,9 +8,9 @@ import { useEffect, useState } from "react"
 import { SkewLoader } from "react-spinners"
 
 const CharacterPage = ({ character }: { character: Character }) => {
-  console.log(character)
-  const router = useRouter()
-  const id = router.query.id
+  // console.log(character)
+  // const router = useRouter()
+  // const id = router.query.id
 
   /*   const [character, setCharacter] = useState<Character>({} as Character)
 

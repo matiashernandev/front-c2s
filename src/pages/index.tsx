@@ -1,17 +1,25 @@
 import { Layout } from "@/components/layouts/Layout"
 import { Card } from "@/components/ui/card"
 import { Character } from "@/interfaces"
+import { CONTENT_BY_LOCALE } from "@/locale"
 import { GetStaticProps, NextPage } from "next"
+import { useRouter } from "next/router"
 
 interface Props {
   characters: Character[]
 }
 
 const Home: NextPage<Props> = ({ characters }) => {
+  const { locale } = useRouter()
+  const localeContent =
+    CONTENT_BY_LOCALE[locale as keyof typeof CONTENT_BY_LOCALE]
+
+  const { home } = localeContent
+
   return (
     <>
       <Layout
-        title="Listado de Amiibos"
+        title={home.title}
         description="¡Encuentra tu colección de figuras Amiibo en nuestro eCommerce! Explora una amplia selección de personajes, como Mario, Zelda, Pokémon y muchos más. Conecta con tus personajes favoritos y desbloquea contenido especial en tus juegos. ¡Envío rápido y seguro garantizado!"
         keywords="Figuras Amiibo, Colección Amiibo, Personajes de Videojuegos, Amiibo API, Mario, Zelda, Pokémon, Juguetes Interactivos, Desbloquear Contenido, Comprar Amiibo, Coleccionables de Juegos, Tienda de Amiibo."
       >
