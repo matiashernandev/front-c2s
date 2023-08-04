@@ -7,4 +7,4 @@ const persona = {
   color: color,
 }
 
-console.log(persona)
+//console.log(persona)

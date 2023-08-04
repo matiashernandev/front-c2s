@@ -6,7 +6,7 @@ import { useRouter } from "next/router"
 export const Navbar = () => {
   const { locale, asPath } = useRouter()
 
-  console.log(locale, asPath)
+  //console.log(locale, asPath)
 
   // console.log(locale)
   // const t = locale === "en-US" ? EN_CONTENT : ES_CONTENT
@@ -35,7 +35,7 @@ export const Navbar = () => {
         </li>
 
         <li>
-          <Link href={asPath} locale={locales.ES_ES}>
+          <Link href={asPath || "/"} locale={locales.ES_ES}>
             <p
               className={
                 "flex gap-2 items-center " +
@@ -53,7 +53,7 @@ export const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href={asPath} locale={locales.EN_US}>
+          <Link href={asPath || "/"} locale={locales.EN_US}>
             <p
               className={
                 "flex gap-2 items-center " +

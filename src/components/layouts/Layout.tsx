@@ -24,7 +24,16 @@ export const Layout: FC<Props> = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* redes sociales */}
-        <meta property="og:title" content={title || "Ecommerce Amiibos"} />
+        <meta property="og:title" content={title} />
+        <meta
+          property="og:description"
+          content={
+            description ||
+            "Amiibo API es una tienda de figuras interactivas que desbloquean contenido en tus juegos favoritos."
+          }
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/mario.jpg" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
