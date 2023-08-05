@@ -5,7 +5,6 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
 import { SkewLoader } from "react-spinners"
 
 interface Props {
@@ -18,22 +17,6 @@ const CharacterPage: NextPage<Props> = ({ character }) => {
     CONTENT_BY_LOCALE[locale as keyof typeof CONTENT_BY_LOCALE]
 
   const { home } = localeContent
-  // console.log(character)
-  // const router = useRouter()
-  // const id = router.query.id
-
-  /*   const [character, setCharacter] = useState<Character>({} as Character)
-
-  const getCharacter = async () => {
-    const res = await fetch(`https://amiiboapi.com/api/amiibo?tail=${id}`)
-    const json = await res.json()
-    //console.log(json.amiibo[0].image)
-    setCharacter(json?.amiibo[0])
-  }
-
-  useEffect(() => {
-    getCharacter()
-  }, []) */
 
   return (
     <Layout title={home.title}>
@@ -81,17 +64,6 @@ export const getStaticPaths: GetStaticPaths = async (locales) => {
       locale,
     }))
   )
-
-  //console.log(paths)
-
-  /*   const res = await fetch(
-    "https://amiiboapi.com/api/amiibo?gameseries=The Legend of Zelda"
-  )
-  const json = await res.json()
-  const data = json.amiibo.slice(4, 24)
-  const paths = data.map(({ tail }: { tail: string }) => ({
-    params: { tail: `${tail}` },
-  })) */
 
   return {
     paths,

@@ -37,7 +37,7 @@ export const Layout: FC<Props> = ({
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container m-auto">
+      <div className="m-5">
         <Navbar />
         <main className="">{children}</main>
       </div>

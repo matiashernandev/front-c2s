@@ -13,7 +13,7 @@ export const Navbar = () => {
   //  console.log(t)
 
   return (
-    <nav className=" mt-3 flex justify-between items-center ">
+    <nav className="hidden sm:flex justify-between items-center ">
       <Link href="/">
         <Image
           className="w-7"
