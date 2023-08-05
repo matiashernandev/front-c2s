@@ -7,7 +7,7 @@ export const Navbar = () => {
   const { locale, asPath } = useRouter()
 
   return (
-    <nav className="hidden sm:flex justify-between items-center ">
+    <nav className="hidden sm:flex justify-between items-center sticky top-0 backdrop-blur-sm ">
       <Link href="/">
         <Image
           className="w-7"
@@ -30,20 +30,20 @@ export const Navbar = () => {
 
         {locale === locales.ES_ES ? (
           <li>
-            <Link href={asPath || "/"} locale={locales.EN_US}>
+            <Link href={asPath || "/"} locale={locales.DE_DE}>
               <p
                 className={
                   "flex gap-2 items-center " +
-                  (locale === locales.EN_US ? "text-yellow-400" : "")
+                  (locale === locales.DE_DE ? "text-yellow-400" : "")
                 }
               >
                 <Image
-                  src="/img/english.png"
-                  alt="English"
+                  src="/img/germany.png"
+                  alt="Germany"
                   width={20}
                   height={20}
                 />
-                {localeNames[locales.EN_US as keyof typeof localeNames]}
+                {localeNames[locales.DE_DE as keyof typeof localeNames]}
               </p>
             </Link>
           </li>

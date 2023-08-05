@@ -19,12 +19,8 @@ export const Card: FC<Props> = ({ character }) => {
   return (
     <li
       onClick={handleClick}
-      className="flex flex-col items-center justify-end rounded-lg bg-blue-500 cursor-pointer hover:bg-yellow-500 p-2 transition-all
-      
-      active:bg-yellow-700 focus:outline-none focus:ring focus:ring-yellow-300
-      
-      
-      "
+      className="flex flex-col items-center justify-end rounded-lg bg-blue-500 cursor-pointer hover:bg-yellow-500 p-2 transition-all      
+      active:bg-yellow-700 focus:outline-none focus:ring focus:ring-yellow-300"
     >
       <Image
         src={character.image}

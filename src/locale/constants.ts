@@ -1,14 +1,14 @@
 const ES_ES = "es-ES"
-const EN_US = "en-US"
+const DE_DE = "de-DE"
 
 // Gestionar las constantes de idioma
 export const locales = {
   ES_ES,
-  EN_US,
+  DE_DE,
 }
 
 // Navbar
 export const localeNames = {
   [ES_ES]: "Español",
-  [EN_US]: "English",
+  [DE_DE]: "Germany",
 }

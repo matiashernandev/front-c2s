@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ["raw.githubusercontent.com"],
   },
   i18n: {
-    locales: ["es-ES", "en-US"],
+    locales: ["es-ES", "de-DE"],
     defaultLocale: "es-ES",
   },
 }
