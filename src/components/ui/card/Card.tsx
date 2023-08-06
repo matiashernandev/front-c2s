@@ -1,7 +1,9 @@
 import { Character } from "@/interfaces"
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { FC } from "react"
+import { FC, useEffect } from "react"
+
+import toast, { Toaster } from "react-hot-toast"
 
 interface Props {
   character: Character
@@ -9,10 +11,25 @@ interface Props {
 
 export const Card: FC<Props> = ({ character }) => {
   const { push } = useRouter()
+  const notify = () =>
+    toast("Loading...", {
+      icon: "👀",
+      position: "top-right",
+      style: {
+        borderRadius: "10px",
+        background: "#09f",
+        color: "#fff",
+      },
+    })
+
+  useEffect(() => {
+    toast.remove()
+  }, [])
 
   //console.log(character)
 
   const handleClick = () => {
+    notify()
     push(`/character/${character.tail}`)
   }
 
@@ -29,6 +46,7 @@ export const Card: FC<Props> = ({ character }) => {
         width={250}
       />
       <h2 className=" text-center text-2xl font-semibold">{character.name}</h2>
+      <Toaster />
     </li>
   )
 }
