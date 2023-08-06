@@ -24,8 +24,8 @@ const Home: NextPage<Props> = ({ characters }) => {
         description={home.description}
         keywords="La Movida, Ostia, Caña, Illo, Mazo, Flipante, Enrollao, Dale candela, Colega, Guay."
       >
-        <div className="flex items-baseline gap-5">
-          <h1 className="text-3xl my-5 font-bold text-center">{home.h1}</h1>
+        <div className="flex items-baseline justify-center gap-5">
+          <h1 className="text-center text-3xl my-7 font-bold ">{home.h1}</h1>
         </div>
         <ul className="grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 ">
           {characters

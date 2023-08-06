@@ -33,9 +33,9 @@ export const Layout: FC<Props> = ({
           }
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/mario.jpg" />
+        <meta property="og:image" content="/img/amiibo-lttp.webp" />
 
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/img/link-8bit.png" />
       </Head>
       <div className="container p-5 md:m-auto">
         <Navbar />
