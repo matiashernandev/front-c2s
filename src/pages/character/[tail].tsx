@@ -54,10 +54,9 @@ export const getStaticPaths: GetStaticPaths = async (locales) => {
   const characters = await fetch(
     "https://amiiboapi.com/api/amiibo?gameseries=The Legend of Zelda"
   )
-  const resp = await characters.json()
-  const data = resp.amiibo.slice(4, 24)
+  const json = await characters.json()
+  const data = json.amiibo.slice(4, 24)
 
-  // Obtener los paths para los personajes junto con los locales
   const paths = data.flatMap((character: Character) =>
     idiomas.map((locale: string) => ({
       params: { tail: character.tail },

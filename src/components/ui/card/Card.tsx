@@ -44,6 +44,9 @@ export const Card: FC<Props> = ({ character }) => {
         alt={character.name}
         height={180}
         width={250}
+        /* layout="responsive" */
+        /* quality={50} */
+        /* placeholder="blur" SOLO PARA IMG STATIC IMPORT O ADD blurDataURL */
       />
       <h2 className=" text-center text-2xl font-semibold">{character.name}</h2>
       <Toaster />
