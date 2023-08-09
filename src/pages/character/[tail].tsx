@@ -1,6 +1,8 @@
 import { Layout } from "@/components/layouts/Layout"
 import { Character } from "@/interfaces"
 import { CONTENT_BY_LOCALE } from "@/locale"
+import { getCharacter } from "@/services"
+import { getCharacters } from "@/services/getCharacters"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import Image from "next/image"
 import Link from "next/link"
@@ -51,13 +53,9 @@ export default CharacterPage
 export const getStaticPaths: GetStaticPaths = async (locales) => {
   const idiomas = locales.locales as string[]
 
-  const characters = await fetch(
-    "https://amiiboapi.com/api/amiibo?gameseries=The Legend of Zelda"
-  )
-  const json = await characters.json()
-  const data = json.amiibo.slice(4, 24)
+  const characters = await getCharacters()
 
-  const paths = data.flatMap((character: Character) =>
+  const paths = characters.flatMap((character: Character) =>
     idiomas.map((locale: string) => ({
       params: { tail: character.tail },
       locale,
@@ -71,11 +69,8 @@ export const getStaticPaths: GetStaticPaths = async (locales) => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await fetch(
-    `https://amiiboapi.com/api/amiibo?tail=${params!.tail}`
-  )
-  const data = await res.json()
-  const character = data.amiibo[0]
+  const id = params?.tail
+  const character = await getCharacter(id as string)
 
   return {
     props: { character },
