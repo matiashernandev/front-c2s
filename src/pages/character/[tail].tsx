@@ -1,8 +1,7 @@
 import { Layout } from "@/components/layouts/Layout"
 import { Character } from "@/interfaces"
 import { CONTENT_BY_LOCALE } from "@/locale"
-import { getCharacter } from "@/services"
-import { getCharacters } from "@/services/getCharacters"
+import { getCharacter, getCharacters } from "@/services"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import Image from "next/image"
 import Link from "next/link"
@@ -54,6 +53,19 @@ export const getStaticPaths: GetStaticPaths = async (locales) => {
   const idiomas = locales.locales as string[]
 
   const characters = await getCharacters()
+
+  /* const resultado = []
+  for (const character of characters) {
+    for (const idioma of idiomas) {
+      resultado.push({ params: { id: character.tail }, locale: idioma })
+    }
+  } */
+
+  /*   const resultado = characters.map((character) => {
+    return idiomas.map((idioma) => {
+      return { params: { id: character.tail }, locale: idioma }
+    })
+  }).flat() */
 
   const paths = characters.flatMap((character: Character) =>
     idiomas.map((locale: string) => ({
